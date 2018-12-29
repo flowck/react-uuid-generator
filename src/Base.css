@@ -26,6 +26,11 @@ body {
   padding-top: 300px;
 }
 
+.application a {
+  color: #006df0;
+  text-decoration: none;
+}
+
 /*
  * Header
  */
@@ -50,6 +55,7 @@ body {
  * Footer
  */
 .footer {
+  color: #999;
   width: 100%;
   display: flex;
   font-size: 14px;
@@ -71,6 +77,12 @@ body {
   cursor: pointer;
   background-color: #006df0;
 }
+
+.generator-control__button:disabled {
+  cursor: wait;
+  background-color:#4f84c3;
+}
+
 
 /*
  * UUIDS

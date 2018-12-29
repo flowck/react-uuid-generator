@@ -37,6 +37,7 @@ export default class App extends Component {
     this.state = {
       uuid: "",
       uuids: [],
+      isLoading: false,
       hadErrorRequesting: false
     };
   }
@@ -45,10 +46,17 @@ export default class App extends Component {
    * This method will request a single uuid from the api
    */
   getSingleUUID() {
+    // Enable the visua effect
+    this.setState({ isLoading: true });
+    // request uuid
     fetch("https://uuid-api.herokuapp.com/api")
       .then(res => res.json())
-      .then(uuid => this.setState({ uuid: uuid.uuid }))
-      .catch(() => this.setState({ hadErrorRequesting: true }));
+      .then(uuid => {
+        this.setState({ uuid: uuid.uuid, isLoading: false });
+      })
+      .catch(() => {
+        this.setState({ hadErrorRequesting: true, isLoading: false });
+      });
   }
 
   render() {
@@ -62,6 +70,7 @@ export default class App extends Component {
             onClick={() => {
               this.getSingleUUID();
             }}
+            disabled={this.state.isLoading}
           >
             Generate UUID
           </button>
