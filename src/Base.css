@@ -1,0 +1,85 @@
+/*
+ * Base styles are defined here
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #EEE;
+  font-family: "ubuntu", "helvetica", "segoe-ui", "sans-serif";
+}
+
+#root {
+  min-height: 100%;
+}
+
+.application {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 300px;
+}
+
+/*
+ * Header
+ */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  width: 100px;
+  height: initial;
+}
+
+.header__title {
+  font-size: 50px;
+  font-weight: 100;
+  margin-left: 20px;
+}
+
+/*
+ * Footer
+ */
+.footer {
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+
+/*
+ * Generator control
+ */
+.generator-control__button {
+  width: 100%;
+  color: #FFF;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 40px;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #006df0;
+}
+
+/*
+ * UUIDS
+ */
+.uuid {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #FFF;
+}
