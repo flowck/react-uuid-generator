@@ -18,8 +18,15 @@ const Header = () => {
 const Footer = () => {
   return (
     <footer className="footer">
-      <span>React UUID generator - {new Date().getFullYear()}</span>
-      <span>Built by Firmino Changani</span>
+      <span>
+        <a href="https://github.com/flowck/react-uuid-generator">
+          React UUID generator
+        </a>{" "}
+        - {new Date().getFullYear()}
+      </span>
+      <span>
+        Built by <a href="https://github.com/flowck">Firmino Changani</a>
+      </span>
     </footer>
   );
 };
@@ -29,7 +36,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       uuid: "",
-      uuids: []
+      uuids: [],
+      hadErrorRequesting: false
     };
   }
 
@@ -40,7 +48,7 @@ export default class App extends Component {
     fetch("https://uuid-api.herokuapp.com/api")
       .then(res => res.json())
       .then(uuid => this.setState({ uuid: uuid.uuid }))
-      .catch(err => console.log("Error: ", err));
+      .catch(() => this.setState({ hadErrorRequesting: true }));
   }
 
   render() {
@@ -50,7 +58,7 @@ export default class App extends Component {
         <section className="generator-control">
           <button
             type="button"
-            class="generator-control__button"
+            className="generator-control__button"
             onClick={() => {
               this.getSingleUUID();
             }}
