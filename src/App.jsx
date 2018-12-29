@@ -32,9 +32,13 @@ const Footer = () => {
   );
 };
 
-// const CopyConfirmation = () => {
-//   return <div className="copy-confirmation">UUID successfully copied.</div>;
-// };
+const CopyConfirmation = props => {
+  if (props.status) {
+    return <div className="copy-confirmation">UUID successfully copied.</div>;
+  }
+
+  return "";
+};
 
 export default class App extends Component {
   constructor(props) {
@@ -43,7 +47,8 @@ export default class App extends Component {
       uuid: "",
       uuids: [],
       isLoading: false,
-      hadErrorRequesting: false
+      hadErrorRequesting: false,
+      copyStatus: false
     };
 
     // this.onSuccess = this.onSuccess.bind(this);
@@ -53,7 +58,11 @@ export default class App extends Component {
    * This method will be called after a uuid is copied by the user
    */
   onSuccess() {
-    console.log("Copied");
+    // Set copy status to true
+    this.setState({ copyStatus: true });
+    setTimeout(() => {
+      this.setState({ copyStatus: false });
+    }, 1000);
   }
 
   /*
@@ -76,6 +85,7 @@ export default class App extends Component {
   render() {
     return (
       <main className="application">
+        <CopyConfirmation status={this.state.copyStatus} />
         <Header />
         <section className="generator-control">
           <button

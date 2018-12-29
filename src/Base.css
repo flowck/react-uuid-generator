@@ -18,6 +18,7 @@ body {
 
 #root {
   min-height: 100%;
+  position: relative;
 }
 
 .application {
@@ -84,7 +85,6 @@ body {
   background-color:#4f84c3;
 }
 
-
 /*
  * UUIDS
  */
@@ -96,9 +96,23 @@ body {
   margin-top: 20px;
   background-color: #FFF;
   cursor: copy;
+  font-size: 20px;
   transition: box-shadow .5s;
 }
 
 .uuid:hover {
   box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .3);
+}
+
+/*
+ * Notifications
+ */
+.copy-confirmation {
+  top: 0;
+  left: 0;
+  color: #FFF;
+  padding: 20px 10px;
+  width: 100%;
+  background-color: green;
+  position: absolute;
 }
