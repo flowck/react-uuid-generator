@@ -76,6 +76,7 @@ body {
   font-size: 30px;
   cursor: pointer;
   background-color: #006df0;
+  transition: background-color .5s;
 }
 
 .generator-control__button:disabled {
@@ -94,4 +95,10 @@ body {
   border-radius: 5px;
   margin-top: 20px;
   background-color: #FFF;
+  cursor: copy;
+  transition: box-shadow .5s;
+}
+
+.uuid:hover {
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .3);
 }

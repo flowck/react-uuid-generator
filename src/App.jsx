@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Clipboard from "react-clipboard.js";
 import "./Base.css";
 
 // Components
@@ -31,6 +32,10 @@ const Footer = () => {
   );
 };
 
+// const CopyConfirmation = () => {
+//   return <div className="copy-confirmation">UUID successfully copied.</div>;
+// };
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -40,6 +45,15 @@ export default class App extends Component {
       isLoading: false,
       hadErrorRequesting: false
     };
+
+    // this.onSuccess = this.onSuccess.bind(this);
+  }
+
+  /*
+   * This method will be called after a uuid is copied by the user
+   */
+  onSuccess() {
+    console.log("Copied");
   }
 
   /*
@@ -76,7 +90,17 @@ export default class App extends Component {
           </button>
         </section>
         <section className="results">
-          <article className="uuid">{this.state.uuid}</article>
+          <article className="uuid">
+            <Clipboard
+              component="span"
+              data-clipboard-text={this.state.uuid}
+              onSuccess={() => {
+                this.onSuccess();
+              }}
+            >
+              {this.state.uuid}
+            </Clipboard>
+          </article>
         </section>
         <Footer />
       </main>
