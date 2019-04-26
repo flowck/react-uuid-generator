@@ -68,18 +68,15 @@ export default class App extends Component {
   /*
    * This method will request a single uuid from the api
    */
-  getSingleUUID() {
-    // Enable the visua effect
+  async getSingleUUID() {
     this.setState({ isLoading: true });
-    // request uuid
-    fetch("https://uuid-api.herokuapp.com/api")
-      .then(res => res.json())
-      .then(uuid => {
-        this.setState({ uuid: uuid.uuid, isLoading: false });
-      })
-      .catch(() => {
-        this.setState({ hadErrorRequesting: true, isLoading: false });
-      });
+    try {
+      let result = await fetch("https://uuid-api.herokuapp.com/api/uuids");
+      result = await result.json();
+      this.setState({ uuid: result.uuid, isLoading: false });
+    } catch (err) {
+      this.setState({ hadErrorRequesting: true, isLoading: false });
+    }
   }
 
   render() {
