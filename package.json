@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.6",
-    "react-clipboard.js": "^2.0.7",
-    "react-dom": "^16.8.6",
+    "react": "^16.13.1",
+    "react-clipboard.js": "^2.0.16",
+    "react-dom": "^16.13.1",
     "react-scripts": "2.1.2"
   },
   "scripts": {
@@ -26,13 +26,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^3.6.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
     "onchange": "^5.2.0",
-    "prettier": "^1.17.0"
+    "prettier": "^1.19.1"
   }
 }
